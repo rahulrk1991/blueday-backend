@@ -5,6 +5,7 @@ const app = express();
 require("./startup/logging")();
 require("./startup/db")();
 require("./startup/config")();
+require("./startup/validation")();
 require("./startup/prod")(app);
 
 const port = process.env.port || 3000;
