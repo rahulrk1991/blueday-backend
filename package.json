@@ -17,6 +17,13 @@
   "author": "Rahul Khanvilkar",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "compression": "^1.7.3",
+    "config": "^2.0.1",
+    "express": "^4.16.3",
+    "express-async-errors": "^3.0.0",
+    "helmet": "^3.13.0",
+    "mongoose": "^5.2.10",
+    "winston": "^2.4.0",
+    "winston-mongodb": "^4.0.3"
   }
 }
