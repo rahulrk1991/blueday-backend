@@ -1,2 +1,2 @@
-# blueday
-BlueDay is a habit forming app with a visual representation in a calendar of habitual behavior
+# BlueDay
+BlueDay is a habit forming app with a visual representation of habitual behavior in a calendar

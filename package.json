@@ -1,7 +1,7 @@
 {
   "name": "blueday",
   "version": "1.0.0",
-  "description": "BlueDay is a habit forming app with a visual representation in a calendar of habitual behavior",
+  "description": "BlueDay is a habit forming app with a visual representation of habitual behavior in a calendar",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +15,8 @@
     "blue"
   ],
   "author": "Rahul Khanvilkar",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
