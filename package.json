@@ -1,7 +1,7 @@
 {
   "name": "blueday",
   "version": "1.0.0",
-  "description": "BlueDay is a habit forming app with a visual representation of habitual behavior",
+  "description": "BlueDay is a habit forming app with a visual representation in a calendar of habitual behavior",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
