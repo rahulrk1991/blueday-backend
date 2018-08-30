@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get("/me", auth, async (request, response) => {
   let user = await User.findById(request.user._id).select("-password");
-  return response.send(user);
+  response.send(user);
 });
 
 router.post("/", async (request, response) => {
