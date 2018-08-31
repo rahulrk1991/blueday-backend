@@ -4,7 +4,7 @@
   "description": "BlueDay is a habit forming app with a visual representation of habitual behavior in a calendar",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watchAll --verbose"
   },
   "keywords": [
     "habits",
@@ -30,5 +30,9 @@
     "mongoose": "^5.2.10",
     "winston": "^2.4.0",
     "winston-mongodb": "^4.0.3"
+  },
+  "devDependencies": {
+    "jest": "^23.5.0",
+    "supertest": "^3.1.0"
   }
 }
