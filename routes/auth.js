@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const Joi = require("joi");
 
 const { User } = require("../models/users");
+const validate = require("../models/auth");
 const router = express.Router();
 
 router.post("/", async (request, response) => {
@@ -21,21 +22,5 @@ router.post("/", async (request, response) => {
   const token = user.generateAuthToken();
   response.send(token);
 });
-
-function validate(request) {
-  const schema = {
-    email: Joi.string()
-      .required()
-      .email()
-      .min(5)
-      .max(255),
-    password: Joi.string()
-      .required()
-      .min(5)
-      .max(255)
-  };
-
-  return Joi.validate(request, schema);
-}
 
 module.exports = router;

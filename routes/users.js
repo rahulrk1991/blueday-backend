@@ -2,8 +2,9 @@ const bcrypt = require("bcrypt");
 const express = require("express");
 const mongoose = require("mongoose");
 const _ = require("lodash");
-const auth = require("../middleware/auth");
 
+const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 const { User, validate } = require("../models/users");
 
 const router = express.Router();
@@ -20,7 +21,9 @@ router.post("/", async (request, response) => {
   let user = await User.findOne({ email: request.body.email });
   if (user) return response.status(400).send("User already registered");
 
-  user = new User(_.pick(request.body, ["name", "email", "password"]));
+  user = new User(
+    _.pick(request.body, ["name", "email", "password", "isPremium", "isAdmin"])
+  );
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
   user.dateJoined = new Date();
@@ -31,6 +34,14 @@ router.post("/", async (request, response) => {
   response
     .header("x-auth-token", token)
     .send(_.pick(user, ["_id", "name", "email", "isPremium", "isAdmin"]));
+});
+
+router.delete("/", [auth, admin], async (request, response) => {
+  let user = await User.findOneAndRemove({ email: request.body.email });
+  if (!user)
+    return response.status(404).send("User with the email Id does not exist");
+
+  response.status(204).send();
 });
 
 module.exports = router;
